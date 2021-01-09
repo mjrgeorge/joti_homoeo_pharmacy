@@ -1,0 +1,19 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: "Poppins", sans-serif;
+  }
+
+  .card {
+    width: 18rem;
+    transition:.5s;
+  }
+  
+  .card:hover{
+    transform: scale(1.1);
+    transition:.5s;
+  }
