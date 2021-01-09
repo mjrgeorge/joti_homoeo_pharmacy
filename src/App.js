@@ -11,8 +11,8 @@ import NotMatch from './components/notMatch/NotMatch';
 import Contact from './components/contact/Contact';
 import Blogs from './components/blogs/Blogs';
 import About from './components/about/About';
-import NavBar from './components/home/navBar/NavBar';
-import Footer from './components/home/footer/Footer';
+import NavBar from './components/navBar/NavBar';
+import Footer from './components/footer/Footer';
 
 function App() {
   return (
