@@ -1,7 +1,7 @@
 import React from 'react';
 import { Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import ParticlesBg from 'particles-bg';
+// import ParticlesBg from 'particles-bg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCode, faStethoscope } from '@fortawesome/free-solid-svg-icons';
 
@@ -20,7 +20,7 @@ const NavBar = () => {
     // "custom"
     return (
         <div className="container">
-            <ParticlesBg type="random" bg={true} />
+            {/* <ParticlesBg type="random" bg={true} /> */}
             <Navbar bg="transparent" expand="lg">
                 <Link to="/">
                     <Navbar.Brand>

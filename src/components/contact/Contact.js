@@ -36,7 +36,7 @@ export default function Contact() {
                     <div className="text-center m-3">
                         <h5><FontAwesomeIcon icon={faSearchLocation} /></h5>
                         <h5>Location</h5>
-                        <h5><Link to="/about">Debiganj, Panchagarh</Link></h5>
+                        <h5><Link to="/about">Tistar Hat, Debiganj, Panchagarh</Link></h5>
                     </div>
                 </div>
                 <div className="col-lg-6">
