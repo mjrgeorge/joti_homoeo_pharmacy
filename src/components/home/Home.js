@@ -8,7 +8,7 @@ const Home = () => {
         <header className="container">
             <section className="row shadow-lg mb-4">
                 <div className="col-lg-6 p-4">
-                    <h2 className="display-4 text-dark">Hi I'm</h2>
+                    <h2 className="display-4">Hello I'm</h2>
                     <h1 className="text-warning">Rathin Arya</h1>
                     <h3 className="text-danger">
                         <Typical

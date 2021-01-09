@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import ParticlesBg from 'particles-bg';
 import {
   BrowserRouter as Router,
   Switch,
@@ -40,8 +41,22 @@ function App() {
         </Route>
       </Switch>
       <Footer />
+      <ParticlesBg type="color" bg={true} />
     </Router>
   );
 }
 
 export default App;
+
+    // "color"
+    // "ball"
+    // "lines"
+    // "thick"
+    // "circle"
+    // "cobweb"
+    // "polygon"
+    // "square"
+    // "tadpole"
+    // "fountain"
+    // "random"
+    // "custom"
