@@ -13,29 +13,33 @@ import Blogs from './components/blogs/Blogs';
 import About from './components/about/About';
 import NavBar from './components/navBar/NavBar';
 import Footer from './components/footer/Footer';
+import Admin from './components/admin/Admin';
 
 function App() {
   return (
     <Router>
-      <NavBar/>
+      <NavBar />
       <Switch>
         <Route exact path="/">
           <Home />
         </Route>
-        <Route path="/contact">
-          <Contact />
+        <Route path="/about">
+          <About />
         </Route>
         <Route path="/blogs">
           <Blogs />
         </Route>
-        <Route path="/about">
-          <About />
+        <Route path="/contact">
+          <Contact />
+        </Route>
+        <Route path="/admin">
+          <Admin />
         </Route>
         <Route path="*">
           <NotMatch />
         </Route>
       </Switch>
-      <Footer/>
+      <Footer />
     </Router>
   );
 }

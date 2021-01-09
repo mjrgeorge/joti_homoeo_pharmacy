@@ -9,7 +9,7 @@ export default function Contact() {
     function sendEmail(e) {
         e.preventDefault();
 
-        emailjs.sendForm('gmail', 'template_pdv5r1m', e.target, 'user_gFp94HYTeS4e2LERlKmJe')
+        emailjs.sendForm('gmail', 'template_3u43qi8', e.target, 'user_Q0FtmF0Kb5FdNJDHSf6yb')
             .then((result) => {
                 console.log(result.text);
                 alert('Message Successfully Send.');
@@ -42,18 +42,19 @@ export default function Contact() {
                 <div className="col-lg-6">
                     <form className="px-5 py-4" onSubmit={sendEmail}>
                         <div className="form-group pb-1">
-                            <input className="form-control" type="hidden" name="contact_number" required />
-                        </div>
-                        <div className="form-group pb-1">
-                            <label className="h5 text-muted">Name</label>
+                            <label className="h6 text-info">Name</label>
                             <input className="form-control" type="text" name="user_name" required />
                         </div>
+                            <label className="h6 text-info">Phone Number</label>
                         <div className="form-group pb-1">
-                            <label className="h5 text-muted">Email</label>
+                            <input className="form-control" type="text" name="contact_number" required />
+                        </div>
+                        <div className="form-group pb-1">
+                            <label className="h6 text-info">Email</label>
                             <input className="form-control" type="email" name="user_email" required />
                         </div>
                         <div className="form-group pb-1">
-                            <label className="h5 text-muted">Message</label>
+                            <label className="h6 text-info">Message</label>
                             <textarea className="form-control" name="message" cols="30" rows="3" required />
                         </div>
                         <div className="form-group pb-1">

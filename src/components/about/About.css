@@ -1,0 +1,18 @@
+.about_style ul li strong:after {
+    content: ":";
+    position: absolute;
+    top: 0;
+    left: auto;
+    right: 0;
+  }
+
+.about_style ul li strong {
+    min-width: 120px;
+    display: inline-block;
+    position: relative;
+    margin-right: 5px;
+}
+
+.about_style ul {
+    list-style: none;
+}
