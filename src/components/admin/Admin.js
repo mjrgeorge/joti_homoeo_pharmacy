@@ -1,11 +1,10 @@
 import React from 'react';
+import Login from '../login/Login';
 
 const Admin = () => {
     return (
-        <div className="container shadow-lg mb-4">
-            <div style={{ height: "70vh" }} className="d-flex justify-content-center align-items-center text-danger">
-                <h1>Coming Soon...</h1>
-            </div>
+        <div style={{height:"70vh"}} className="container shadow-lg mb-4 p-5">
+            <Login />
         </div>
     );
 };

@@ -21,8 +21,8 @@ export default function Contact() {
 
     return (
         <div className="container">
-            <div className="row shadow-lg mb-4">
-                <div className="col-lg-6 text-danger d-flex justify-content-center align-items-center flex-column">
+            <div className="row mb-4">
+                <div className="col-lg-6 shadow-lg text-danger d-flex justify-content-center align-items-center flex-column">
                     <div className="text-center m-2">
                         <h3><FontAwesomeIcon icon={faPhoneAlt} /></h3>
                         <h5>Call Me On</h5>
@@ -39,7 +39,7 @@ export default function Contact() {
                         <h5><Link className="text-decoration-none text-info" to="/about">Tistar Hat, Debiganj, Panchagarh</Link></h5>
                     </div>
                 </div>
-                <div className="col-lg-6">
+                <div className="col-lg-6 shadow-lg">
                     <form className="px-5 py-4" onSubmit={sendEmail}>
                         <div className="form-group mb-2">
                             <label className="h5 text-danger">Name</label>
