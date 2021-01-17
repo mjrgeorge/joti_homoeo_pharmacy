@@ -25,6 +25,7 @@ const NavBar = () => {
                         <Link className="h4 text-info font-weight-bold ml-4 text-decoration-none" to="/blogs">Blogs</Link>
                         <Link className="h4 text-info font-weight-bold ml-4 text-decoration-none" to="/contact">Contact</Link>
                         <Link className="btn btn-outline-danger ml-4" to="/Admin"><big>Admin</big></Link>
+                        <Link className="btn btn-danger ml-4" to="/login"><big>Login</big></Link>
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>

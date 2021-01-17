@@ -15,6 +15,7 @@ import About from './components/about/About';
 import NavBar from './components/navBar/NavBar';
 import Footer from './components/footer/Footer';
 import Admin from './components/admin/Admin';
+import Login from './components/login/Login';
 
 function App() {
   return (
@@ -35,6 +36,9 @@ function App() {
         </Route>
         <Route path="/admin">
           <Admin />
+        </Route>
+        <Route path="/login">
+          <Login />
         </Route>
         <Route path="*">
           <NotMatch />

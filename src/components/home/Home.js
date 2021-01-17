@@ -18,7 +18,7 @@ const Home = () => {
                         />
                     </h3>
                     <p className="text-capitalize text-justify text-muted h5">I am a Homoeo Doctor. I give primary treatment of ill patients. Besides this I want to built-up my career as a Web Developer. I love to code modern and responsive layouts for web application. I try to improve Myself in  Every moment.</p>
-                    <Link className="btn btn-outline-info font-weight-bold" to="/contact"><big>Contact Us</big></Link>
+                    <Link className="btn btn-outline-info font-weight-bold" to="/contact"><big>Contact Me</big></Link>
                 </div>
                 <div className="col-lg-6 p-4 d-flex justify-content-center align-items-center">
                     <img style={{ height: "430px" }} className="img-fluid" src={Rathin} alt="Rathin" />
