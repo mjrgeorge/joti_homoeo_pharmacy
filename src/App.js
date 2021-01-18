@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { createContext, useState } from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ParticlesBg from 'particles-bg';
@@ -16,37 +16,43 @@ import NavBar from './components/navBar/NavBar';
 import Footer from './components/footer/Footer';
 import Admin from './components/admin/Admin';
 import Login from './components/login/Login';
+import PrivateRoute from './components/login/PrivateRoute';
+
+export const UserContext = createContext();
 
 function App() {
+  const [loggedInUser, setLoggedInUser] = useState([]);
   return (
-    <Router>
-      <NavBar />
-      <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route path="/about">
-          <About />
-        </Route>
-        <Route path="/blogs">
-          <Blogs />
-        </Route>
-        <Route path="/contact">
-          <Contact />
-        </Route>
-        <Route path="/admin">
-          <Admin />
-        </Route>
-        <Route path="/login">
-          <Login />
-        </Route>
-        <Route path="*">
-          <NotMatch />
-        </Route>
-      </Switch>
-      <Footer />
-      <ParticlesBg type="color" bg={true} />
-    </Router>
+    <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
+      <Router>
+        <NavBar />
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/login">
+            <Login />
+          </Route>
+          <Route path="/about">
+            <About />
+          </Route>
+          <Route path="/blogs">
+            <Blogs />
+          </Route>
+          <Route path="/contact">
+            <Contact />
+          </Route>
+          <PrivateRoute path="/admin">
+            <Admin />
+          </PrivateRoute>
+          <Route path="*">
+            <NotMatch />
+          </Route>
+        </Switch>
+        <Footer />
+        <ParticlesBg type="color" bg={true} />
+      </Router>
+    </UserContext.Provider>
   );
 }
 
