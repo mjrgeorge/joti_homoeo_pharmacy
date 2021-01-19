@@ -21,7 +21,7 @@ const Admin = () => {
                                 <th>Total Bill</th>
                                 <th>Paid Bill</th>
                                 <th>Due Bill</th>
-                                <th>Treatment</th>
+                                {/* <th>Treatment</th> */}
                             </tr>
                         </thead>
                         <tbody>
@@ -34,7 +34,7 @@ const Admin = () => {
                                         <td>${data.totalBill}</td>
                                         <td>${data.paidBill}</td>
                                         <td>${data.totalBill - data.paidBill}</td>
-                                        <td>{data.treatment}</td>
+                                        {/* <td>{data.treatment}</td> */}
                                     </tr>)
                             }
                         </tbody>
