@@ -1,7 +1,5 @@
 import React, { useContext } from 'react';
 import { Button, Card, Form } from 'react-bootstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCode, faStethoscope } from '@fortawesome/free-solid-svg-icons';
 import firebase from "firebase/app";
 import "firebase/auth";
 import firebaseConfig from './firebaseConfig';
@@ -29,7 +27,6 @@ const Login = () => {
                 alert(errorMessage);
             });
     };
-
     return (
         <div style={{ minHeight: "70vh" }} className="container shadow-lg mb-4 p-5">
             <div style={{ height: "100%" }} className="d-flex justify-content-center align-items-center">

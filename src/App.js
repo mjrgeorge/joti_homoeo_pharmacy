@@ -14,21 +14,27 @@ import Blogs from './components/blogs/Blogs';
 import About from './components/about/About';
 import NavBar from './components/navBar/NavBar';
 import Footer from './components/footer/Footer';
-import Admin from './components/admin/Admin';
+import PatientList from './components/admin/PatientList';
 import Login from './components/login/Login';
 import PrivateRoute from './components/login/PrivateRoute';
+import PatientAdd from './components/admin/PatientAdd';
+import myFakeData from './components/fakeData/FakeData';
 
 export const UserContext = createContext();
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState([]);
+  const [fakeData, setFakeData] = useState(myFakeData);
   return (
-    <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
+    <UserContext.Provider value={[loggedInUser, setLoggedInUser, fakeData, setFakeData]}>
       <Router>
         <NavBar />
         <Switch>
           <Route exact path="/">
             <Home />
+          </Route>
+          <Route path="/login">
+            <Login />
           </Route>
           <Route path="/about">
             <About />
@@ -39,11 +45,11 @@ function App() {
           <Route path="/contact">
             <Contact />
           </Route>
-          <Route path="/admin">
-            <Admin />
+          <Route path="/patientList">
+            <PatientList />
           </Route>
-          <Route path="/addPatient">
-            <Login />
+          <Route path="/patientAdd">
+            <PatientAdd />
           </Route>
           {/* <PrivateRoute path="/admin">
             <Admin />
