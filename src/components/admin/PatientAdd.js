@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Table } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
 import { UserContext } from '../../App';
+import SideBar from './SideBar';
 
 const PatientAdd = () => {
     const [loggedInUser, setLoggedInUser, fakeData, setFakeData] = useContext(UserContext);
@@ -9,11 +9,7 @@ const PatientAdd = () => {
         <div style={{ minHeight: "70vh" }} className="container shadow-lg mb-4 p-5">
             <div className="row">
                 <div className="col-lg-2">
-                    <div className="list-group">
-                        <Link to="/" className="list-group-item list-group-item-action list-group-item-dark"><img src={loggedInUser.photoURL} className="rounded-circle" alt="UserPhoto" /></Link>
-                        <Link to="/about" className="list-group-item list-group-item-action list-group-item-dark">{loggedInUser.displayName}</Link>
-                        <Link to="/patientList" className="list-group-item list-group-item-action list-group-item-light">Patient List</Link>
-                    </div>
+                    <SideBar/>
                 </div>
                 <div className="col-lg-10">
                     <Table striped bordered hover size="sm" className="text-center">
