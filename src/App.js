@@ -30,9 +30,6 @@ function App() {
           <Route exact path="/">
             <Home />
           </Route>
-          <Route path="/login">
-            <Login />
-          </Route>
           <Route path="/about">
             <About />
           </Route>
@@ -42,15 +39,21 @@ function App() {
           <Route path="/contact">
             <Contact />
           </Route>
-          <PrivateRoute path="/admin">
+          <Route path="/admin">
             <Admin />
-          </PrivateRoute>
+          </Route>
+          <Route path="/addPatient">
+            <Login />
+          </Route>
+          {/* <PrivateRoute path="/admin">
+            <Admin />
+          </PrivateRoute> */}
           <Route path="*">
             <NotMatch />
           </Route>
         </Switch>
         <Footer />
-        <ParticlesBg type="color" bg={true} />
+        {/* <ParticlesBg type="color" bg={true} /> */}
       </Router>
     </UserContext.Provider>
   );
