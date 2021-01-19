@@ -7,7 +7,6 @@ import { UserContext } from '../../App';
 
 const NavBar = () => {
     const [loggedInUser, setLoggedInUser, fakeData, setFakeData] = useContext(UserContext);
-    console.log(loggedInUser.email);
     return (
         <div className="container">
             <Navbar bg="transparent" expand="lg">
@@ -33,7 +32,7 @@ const NavBar = () => {
                                 ?
                                 <a className="btn btn-danger ml-4" href="/"><big>Logout</big></a>
                                 :
-                                <Link className="btn btn-outline-info ml-4" to="/login"><big>Login</big></Link>
+                                <Link className="btn btn-outline-danger ml-4" to="/login"><big>Login</big></Link>
                         }
                     </Nav>
                 </Navbar.Collapse>
