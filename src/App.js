@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ParticlesBg from 'particles-bg';
 import {
@@ -17,15 +17,22 @@ import PatientList from './components/admin/PatientList';
 import Login from './components/login/Login';
 import PrivateRoute from './components/login/PrivateRoute';
 import PatientAdd from './components/admin/PatientAdd';
-import myFakeData from './components/fakeData/FakeData';
 
 export const UserContext = createContext();
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState([]);
-  const [fakeData, setFakeData] = useState(myFakeData);
+  const [patientData, setPatientData] = useState([]);
+  
+  useEffect(() => {
+    fetch("http://localhost:30001/viewAllPatient")
+    .then(res => res.json())
+    .then(data => setPatientData(data))
+  }, [])
+  console.log(patientData);
+
   return (
-    <UserContext.Provider value={[loggedInUser, setLoggedInUser, fakeData, setFakeData]}>
+    <UserContext.Provider value={[loggedInUser, setLoggedInUser, patientData, setPatientData]}>
       <Router>
         <NavBar />
         <Switch>

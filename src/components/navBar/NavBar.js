@@ -6,7 +6,7 @@ import { faCode, faStethoscope } from '@fortawesome/free-solid-svg-icons';
 import { UserContext } from '../../App';
 
 const NavBar = () => {
-    const [loggedInUser, setLoggedInUser, fakeData, setFakeData] = useContext(UserContext);
+    const [loggedInUser, setLoggedInUser, patientData, setPatientData] = useContext(UserContext);
     return (
         <div className="container">
             <Navbar bg="transparent" expand="lg">

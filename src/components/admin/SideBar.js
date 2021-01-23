@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { UserContext } from '../../App';
 
 const SideBar = () => {
-    const [loggedInUser, setLoggedInUser, fakeData, setFakeData] = useContext(UserContext);
+    const [loggedInUser, setLoggedInUser, patientData, setPatientData] = useContext(UserContext);
     return (
         <div className="list-group">
         <Link to="/" className="list-group-item list-group-item-action list-group-item-dark"><img src={loggedInUser.photoURL} className="rounded-circle" alt="UserPhoto" /></Link>

@@ -1,4 +1,4 @@
-const myFakeData = [
+const mypatientData = [
     {
         id: "1",
         drName: "Dr. Rathin Arya",
@@ -44,4 +44,4 @@ const myFakeData = [
         paidBill: "400"
     }
 ];
-export default myFakeData;
+export default mypatientData;

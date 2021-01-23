@@ -4,7 +4,7 @@ import { UserContext } from '../../App';
 import SideBar from './SideBar';
 
 const Admin = () => {
-    const [loggedInUser, setLoggedInUser, fakeData, setFakeData] = useContext(UserContext);
+    const [loggedInUser, setLoggedInUser, patientData, setPatientData] = useContext(UserContext);
     return (
         <div style={{ minHeight: "70vh" }} className="container shadow-lg mb-4 p-5">
             <div className="row">
@@ -26,9 +26,9 @@ const Admin = () => {
                         </thead>
                         <tbody>
                             {
-                                fakeData.map(data =>
-                                    <tr key={data.id}>
-                                        <td>{data.name}</td>
+                                patientData.map(data =>
+                                    <tr key={data._id}>
+                                        <td>{data.patientName}</td>
                                         <td>{data.age}</td>
                                         <td>{data.disease}</td>
                                         <td>${data.totalBill}</td>

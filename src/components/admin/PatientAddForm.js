@@ -3,12 +3,25 @@ import { useForm } from "react-hook-form";
 import { UserContext } from '../../App';
 
 const PatientAddForm = () => {
-    const [loggedInUser, setLoggedInUser, fakeData, setFakeData] = useContext(UserContext);
+    const [loggedInUser, setLoggedInUser, patientData, setPatientData] = useContext(UserContext);
     const { register, handleSubmit } = useForm();
 
     const onSubmit = (data) => {
-        alert(JSON.stringify(data))
-        document.getElementById("myForm").reset();
+        data.createdDate = new Date();
+
+        fetch("http://localhost:30001/addPatient", {
+            method: "POST",
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify(data)
+        })
+            .then(res => res.json())
+            .then(success => {
+                if (success) {
+                    alert('Patient Data Successfully Added');
+                    document.getElementById("myForm").reset();
+                }
+            })
+
     };
 
     return (
@@ -18,7 +31,7 @@ const PatientAddForm = () => {
                     <input name="drName" ref={register} type="text" className="form-control" placeholder="Doctor Name" defaultValue={loggedInUser.displayName} required />
                 </div>
                 <div className="col">
-                <input name="patientName" ref={register} type="text" className="form-control" placeholder="Patient Name" required />
+                    <input name="patientName" ref={register} type="text" className="form-control" placeholder="Patient Name" required />
                 </div>
             </div>
             <div className="row">
