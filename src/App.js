@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect } from 'react';
+import React, { createContext, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ParticlesBg from 'particles-bg';
 import {
@@ -23,14 +23,6 @@ export const UserContext = createContext();
 function App() {
   const [loggedInUser, setLoggedInUser] = useState([]);
   const [patientData, setPatientData] = useState([]);
-  
-  useEffect(() => {
-    fetch("http://localhost:30001/viewAllPatient")
-    .then(res => res.json())
-    .then(data => setPatientData(data))
-  }, [])
-  console.log(patientData);
-
   return (
     <UserContext.Provider value={[loggedInUser, setLoggedInUser, patientData, setPatientData]}>
       <Router>

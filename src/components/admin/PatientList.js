@@ -1,10 +1,17 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Table } from 'react-bootstrap';
 import { UserContext } from '../../App';
 import SideBar from './SideBar';
 
 const Admin = () => {
     const [loggedInUser, setLoggedInUser, patientData, setPatientData] = useContext(UserContext);
+      
+  useEffect(() => {
+    fetch("http://localhost:30001/viewAllPatient")
+    .then(res => res.json())
+    .then(data => setPatientData(data))
+  }, [])
+
     return (
         <div style={{ minHeight: "70vh" }} className="container shadow-lg mb-4 p-5">
             <div className="row">
