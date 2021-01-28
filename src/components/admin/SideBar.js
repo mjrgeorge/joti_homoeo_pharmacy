@@ -10,6 +10,9 @@ const SideBar = () => {
         <Link to="/about" className="list-group-item list-group-item-action list-group-item-secondary">{loggedInUser.displayName}</Link>
         <Link to="/patientAdd" className="list-group-item list-group-item-action list-group-item-primary">Patient Add</Link>
         <Link to="/patientList" className="list-group-item list-group-item-action list-group-item-info">Patient List</Link>
+        <Link to="/patientList" className="list-group-item list-group-item-action list-group-item-info">
+            <input type="date" name="selectedDate" id=""/>
+        </Link>
     </div>
     );
 };

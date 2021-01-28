@@ -7,19 +7,19 @@ const Admin = () => {
     const [loggedInUser, setLoggedInUser, patientData, setPatientData] = useContext(UserContext);
       
   useEffect(() => {
-    fetch("http://localhost:30001/viewAllPatient")
+    fetch("https://safe-wildwood-28382.herokuapp.com//viewAllPatient")
     .then(res => res.json())
     .then(data => setPatientData(data))
   }, [])
 
     return (
-        <div style={{ minHeight: "70vh" }} className="container shadow-lg mb-4 p-5">
+        <div style={{ minHeight: "70vh" }} className="container shadow-lg mb-4 p-5 text-capitalize">
             <div className="row">
                 <div className="col-lg-2">
                     <SideBar/>
                 </div>
                 <div className="col-lg-10">
-                    <Table striped bordered hover size="sm" className="text-center">
+                    <Table striped bordered hover size="sm" className="text-center font-monospace">
                         <thead>
                             <tr>
                                 <th>Name</th>
