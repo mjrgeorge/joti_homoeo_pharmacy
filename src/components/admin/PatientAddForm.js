@@ -1,15 +1,13 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { useForm } from "react-hook-form";
-import { UserContext } from '../../App';
 
 const PatientAddForm = () => {
-    const [loggedInUser, setLoggedInUser, patientData, setPatientData] = useContext(UserContext);
     const { register, handleSubmit } = useForm();
 
     const onSubmit = (data) => {
         data.createdDate = new Date();
 
-        fetch("https://safe-wildwood-28382.herokuapp.com//addPatient", {
+        fetch("https://safe-wildwood-28382.herokuapp.com/addPatient", {
             method: "POST",
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(data)
@@ -21,14 +19,13 @@ const PatientAddForm = () => {
                     document.getElementById("myForm").reset();
                 }
             })
-
     };
 
     return (
         <form onSubmit={handleSubmit(onSubmit)} id="myForm">
             <div className="row">
                 <div className="col">
-                    <input name="drName" ref={register} type="text" className="form-control" placeholder="Doctor Name" defaultValue={loggedInUser.displayName} required />
+                    <input name="drName" ref={register} type="text" className="form-control" placeholder="Doctor Name" defaultValue="Dr. Rathin Arya" required />
                 </div>
                 <div className="col">
                     <input name="patientName" ref={register} type="text" className="form-control" placeholder="Patient Name" required />

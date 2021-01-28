@@ -46,18 +46,15 @@ function App() {
           <Route path="/patientList">
             <PatientList />
           </Route>
-          <Route path="/patientAdd">
+          <PrivateRoute path="/patientAdd">
             <PatientAdd />
-          </Route>
-          {/* <PrivateRoute path="/admin">
-            <Admin />
-          </PrivateRoute> */}
+          </PrivateRoute>
           <Route path="*">
             <NotMatch />
           </Route>
         </Switch>
         <Footer />
-        {/* <ParticlesBg type="color" bg={true} /> */}
+        <ParticlesBg type="color" bg={true} />
       </Router>
     </UserContext.Provider>
   );

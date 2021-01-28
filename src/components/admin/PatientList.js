@@ -7,7 +7,7 @@ const Admin = () => {
     const [loggedInUser, setLoggedInUser, patientData, setPatientData] = useContext(UserContext);
       
   useEffect(() => {
-    fetch("https://safe-wildwood-28382.herokuapp.com//viewAllPatient")
+    fetch("https://safe-wildwood-28382.herokuapp.com/viewAllPatient")
     .then(res => res.json())
     .then(data => setPatientData(data))
   }, [])
