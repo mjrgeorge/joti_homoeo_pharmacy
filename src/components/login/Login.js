@@ -27,7 +27,7 @@ const Login = () => {
                 alert(errorMessage);
             });
     };
-    
+
     return (
         <div style={{ minHeight: "70vh" }} className="container shadow-lg mb-4 d-flex justify-content-center align-items-center">
             <div style={{ minHeight: "22rem", width: "18rem" }} className="card shadow">

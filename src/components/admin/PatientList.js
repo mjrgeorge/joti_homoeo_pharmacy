@@ -23,28 +23,28 @@ const Admin = () => {
                         <table className="table text-center">
                             <thead>
                                 <tr>
+                                    <th>Date</th>
                                     <th>Name</th>
                                     <th>Age</th>
-                                    <th>Date</th>
                                     <th>Disease</th>
+                                    <th>Treatment</th>
                                     <th>Total Bill</th>
                                     <th>Paid Bill</th>
                                     <th>Due Bill</th>
-                                    <th>Treatment</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {
                                     patientData.map(data =>
                                         <tr key={data._id}>
+                                            <td>{data.createdDate}</td>
                                             <td>{data.patientName}</td>
                                             <td>{data.age}</td>
-                                            <td>{data.createdDate}</td>
                                             <td>{data.disease}</td>
+                                            <td>{data.treatment}</td>
                                             <td>${data.totalBill}</td>
                                             <td>${data.paidBill}</td>
                                             <td>${data.totalBill - data.paidBill}</td>
-                                            <td>{data.treatment}</td>
                                         </tr>)
                                 }
                             </tbody>
