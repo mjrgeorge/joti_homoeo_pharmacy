@@ -46,9 +46,15 @@ function App() {
           <Route path="/patientList">
             <PatientList />
           </Route>
-          <PrivateRoute path="/patientAdd">
+          {/* <PrivateRoute path="/patientList">
+            <PatientList />
+          </PrivateRoute> */}
+          {/* <PrivateRoute path="/patientAdd">
             <PatientAdd />
-          </PrivateRoute>
+          </PrivateRoute> */}
+          <Route path="/patientAdd">
+            <PatientAdd />
+          </Route>
           <Route path="*">
             <NotMatch />
           </Route>

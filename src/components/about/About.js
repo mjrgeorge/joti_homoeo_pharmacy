@@ -17,7 +17,7 @@ const About = () => {
                             <li><strong>Languages</strong> Bengali, English</li>
                             <li><strong>Phone</strong> <a href="tel:+8801314942635">+8801314942635</a></li>
                             <li><strong>E-mail</strong><a href="mailto:jotihomoeo32@gmail.com">jotihomoeo32@gmail.com</a></li>
-                            <li>
+                            <li>fire
                                 <strong>Address</strong>
                                 <address>Tistar Hat Bazar, Debiganj, Panchagarh, Bangladesh</address>
                             </li>

@@ -5,7 +5,7 @@ const PatientAddForm = () => {
     const { register, handleSubmit } = useForm();
 
     const onSubmit = (data) => {
-        data.createdDate = new Date();
+        data.createdDate = new Date().toLocaleDateString();
 
         fetch("https://safe-wildwood-28382.herokuapp.com/addPatient", {
             method: "POST",
@@ -33,7 +33,7 @@ const PatientAddForm = () => {
             </div>
             <div className="row">
                 <div className="col">
-                    <input name="phone" ref={register} type="number" className="form-control mt-3" placeholder="Patient Phone Number" required />
+                    <input name="phone" ref={register} type="number" className="form-control mt-3" placeholder="Patient Phone Number"/>
                 </div>
                 <div className="col">
                     <input name="disease" ref={register} type="text" className="form-control mt-3" placeholder="Patient Disease" required />
