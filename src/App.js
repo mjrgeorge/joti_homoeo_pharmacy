@@ -43,6 +43,12 @@ function App() {
           <Route path="/contact">
             <Contact />
           </Route>
+          {/* <Route path="/patientList">
+            <PatientList />
+          </Route>
+          <Route path="/patientAdd">
+            <PatientAdd />
+          </Route> */}
           <PrivateRoute path="/patientList">
             <PatientList />
           </PrivateRoute>
