@@ -13,10 +13,10 @@ import Blogs from './components/blogs/Blogs';
 import About from './components/about/About';
 import NavBar from './components/navBar/NavBar';
 import Footer from './components/footer/Footer';
-import PatientList from './components/admin/PatientList';
+import PatientList from './components/dashboard/PatientList';
 import Login from './components/login/Login';
 import PrivateRoute from './components/login/PrivateRoute';
-import PatientAdd from './components/admin/PatientAdd';
+import PatientAdd from './components/dashboard/PatientAdd';
 
 export const UserContext = createContext();
 
@@ -43,40 +43,41 @@ function App() {
           <Route path="/contact">
             <Contact />
           </Route>
-          {/* <Route path="/patientList">
+          <Route path="/patientList">
             <PatientList />
           </Route>
           <Route path="/patientAdd">
             <PatientAdd />
-          </Route> */}
-          <PrivateRoute path="/patientList">
+          </Route>
+          {/* <PrivateRoute path="/patientList">
             <PatientList />
           </PrivateRoute>
           <PrivateRoute path="/patientAdd">
             <PatientAdd />
-          </PrivateRoute>
+          </PrivateRoute> */}
           <Route path="*">
             <NotMatch />
           </Route>
         </Switch>
         <Footer />
-        <ParticlesBg type="color" bg={true} />
+        <ParticlesBg 
+        type=
+        // "color"
+        // "ball"
+        // "lines"
+        // "thick"
+        // "circle"
+        // "cobweb"
+        // "polygon"
+        "square"
+        // "tadpole"
+        // "fountain"
+        // "random"
+        // "custom"
+        bg={true} />
       </Router>
     </UserContext.Provider>
   );
 }
 
 export default App;
-
-    // "color"
-    // "ball"
-    // "lines"
-    // "thick"
-    // "circle"
-    // "cobweb"
-    // "polygon"
-    // "square"
-    // "tadpole"
-    // "fountain"
-    // "random"
-    // "custom"

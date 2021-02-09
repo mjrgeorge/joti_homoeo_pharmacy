@@ -5,6 +5,8 @@ import "firebase/auth";
 import firebaseConfig from './firebaseConfig';
 import { UserContext } from '../../App';
 import { useHistory, useLocation } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 
 firebase.initializeApp(firebaseConfig);
 
@@ -30,9 +32,12 @@ const Login = () => {
 
     return (
         <div style={{ minHeight: "70vh" }} className="container shadow-lg mb-4 d-flex justify-content-center align-items-center">
-            <div style={{ minHeight: "22rem", width: "18rem" }} className="card shadow">
+            <div style={{ minHeight: "22rem", width: "18rem" }} className="card bg-transparent shadow-lg border-danger">
                 <div className="card-body d-flex align-items-center block">
-                    <Button onClick={googleLogIn} variant="outline-danger" block>Login With Google</Button>
+                    <Button onClick={googleLogIn} variant="outline-danger" className="d-flex justify-content-around align-items-center" block>
+                    <FontAwesomeIcon icon={faGoogle} className="display-4 text-info" />
+                        Login With Google
+                        </Button>
                 </div>
             </div>
         </div>
