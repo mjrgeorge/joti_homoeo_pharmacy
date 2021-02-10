@@ -15,7 +15,7 @@ const Dashboard = () => {
     }, [patientData]);
 
     const handleDelete = (id) => {
-        fetch(`http://localhost:30001/deletePatient/${id}`, {
+        fetch(`https://safe-wildwood-28382.herokuapp.com/deletePatient/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())
