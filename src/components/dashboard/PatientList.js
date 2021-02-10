@@ -3,7 +3,7 @@ import { UserContext } from '../../App';
 import SideBar from './SideBar';
 import loading from '../../images/loading.gif';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import { faPen, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 
 const Dashboard = () => {
     const [loggedInUser, setLoggedInUser, patientData, setPatientData] = useContext(UserContext);
@@ -15,17 +15,19 @@ const Dashboard = () => {
     }, [patientData]);
 
     const handleDelete = (id) => {
-        console.log("clicked", id);
-        fetch(`http://localhost:30001/deletePatient/${id}`,{
-            method:  'DELETE'
+        fetch(`http://localhost:30001/deletePatient/${id}`, {
+            method: 'DELETE'
         })
-        .then(res=>res.json())
-        .then(result=>{
-            if(result){
-                alert("Patient Data Successfully Deleted.")
-            }
-        })
-        
+            .then(res => res.json())
+            .then(result => {
+                if (result) {
+                    alert("Patient Data Successfully Deleted.")
+                }
+            })
+    };
+
+    const handleUpdate = (id) => {
+        alert(`Please Couple Day Wait ${id}`);
     };
 
     return (
@@ -67,7 +69,10 @@ const Dashboard = () => {
                                                         <td>${data.totalBill}</td>
                                                         <td>${data.paidBill}</td>
                                                         <td>${data.totalBill - data.paidBill}</td>
-                                                        <td role="button"><FontAwesomeIcon icon={faTrashAlt} onClick={()=>handleDelete(`${data._id}`)} /></td>
+                                                        <td role="button" className="d-flex justify-content-between align-items-center">
+                                                            <FontAwesomeIcon icon={faPen} onClick={() => handleUpdate(`${data._id}`)} />
+                                                            <FontAwesomeIcon icon={faTrashAlt} onClick={() => handleDelete(`${data._id}`)} />
+                                                        </td>
                                                     </tr>)
                                             }
                                         </tbody>

@@ -43,38 +43,38 @@ function App() {
           <Route path="/contact">
             <Contact />
           </Route>
-          <Route path="/patientList">
+          {/* <Route path="/patientList">
             <PatientList />
           </Route>
           <Route path="/patientAdd">
             <PatientAdd />
-          </Route>
-          {/* <PrivateRoute path="/patientList">
+          </Route> */}
+          <PrivateRoute path="/patientList">
             <PatientList />
           </PrivateRoute>
           <PrivateRoute path="/patientAdd">
             <PatientAdd />
-          </PrivateRoute> */}
+          </PrivateRoute>
           <Route path="*">
             <NotMatch />
           </Route>
         </Switch>
         <Footer />
-        <ParticlesBg 
-        type=
-        // "color"
-        // "ball"
-        // "lines"
-        // "thick"
-        // "circle"
-        // "cobweb"
-        // "polygon"
-        "square"
-        // "tadpole"
-        // "fountain"
-        // "random"
-        // "custom"
-        bg={true} />
+        <ParticlesBg
+          type=
+          // "color"
+          // "ball"
+          // "lines"
+          // "thick"
+          // "circle"
+          // "cobweb"
+          // "polygon"
+          "square"
+          // "tadpole"
+          // "fountain"
+          // "random"
+          // "custom"
+          bg={true} />
       </Router>
     </UserContext.Provider>
   );

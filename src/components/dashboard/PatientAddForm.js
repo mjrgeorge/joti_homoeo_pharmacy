@@ -8,7 +8,7 @@ const PatientAddForm = () => {
 
     const onSubmit = (data) => {
         data.createdDate = new Date().toLocaleDateString();
-        
+
         fetch("https://safe-wildwood-28382.herokuapp.com/addPatient", {
             method: "POST",
             headers: { 'content-type': 'application/json' },
@@ -22,8 +22,6 @@ const PatientAddForm = () => {
                 }
             })
     };
-
-    console.log(patientData);
 
     return (
         <form onSubmit={handleSubmit(onSubmit)} id="myForm">
