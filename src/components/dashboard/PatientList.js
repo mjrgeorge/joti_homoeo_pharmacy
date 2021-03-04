@@ -1,9 +1,11 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { UserContext } from '../../App';
 import SideBar from './SideBar';
 import loading from '../../images/loading.gif';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import { Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const Dashboard = () => {
     const [loggedInUser, setLoggedInUser, patientData, setPatientData] = useContext(UserContext);
@@ -24,10 +26,6 @@ const Dashboard = () => {
                     alert("Patient Data Successfully Deleted.")
                 }
             })
-    };
-
-    const handleUpdate = (id) => {
-        alert(`Please Couple Day Wait ${id}`);
     };
 
     return (
@@ -70,13 +68,18 @@ const Dashboard = () => {
                                                         <td>${data.paidBill}</td>
                                                         <td>${data.totalBill - data.paidBill}</td>
                                                         <td role="button" className="d-flex justify-content-between align-items-center">
-                                                            <FontAwesomeIcon icon={faPen} onClick={() => handleUpdate(`${data._id}`)} />
+                                                            <Link to ={`/editPatient/${data._id}`}>
+                                                            <FontAwesomeIcon icon={faPen} />
+                                                            </Link>
                                                             <FontAwesomeIcon icon={faTrashAlt} onClick={() => handleDelete(`${data._id}`)} />
                                                         </td>
                                                     </tr>)
                                             }
                                         </tbody>
                                     </table>
+                                    <div className="text-right">
+                                        <Button variant="btn btn-outline-danger" onClick={() => window.print()}>Print This Page</Button>
+                                    </div>
                                 </div>
                             </div>
                         </div>

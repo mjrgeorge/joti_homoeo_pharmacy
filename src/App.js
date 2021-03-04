@@ -17,6 +17,7 @@ import PatientList from './components/dashboard/PatientList';
 import Login from './components/login/Login';
 import PrivateRoute from './components/login/PrivateRoute';
 import PatientAdd from './components/dashboard/PatientAdd';
+import PatientEdit from './components/dashboard/PatientEdit';
 
 export const UserContext = createContext();
 
@@ -43,24 +44,27 @@ function App() {
           <Route path="/contact">
             <Contact />
           </Route>
-          {/* <Route path="/patientList">
-            <PatientList />
-          </Route>
           <Route path="/patientAdd">
             <PatientAdd />
-          </Route> */}
-          <PrivateRoute path="/patientList">
+          </Route>
+          <Route path="/patientList">
+            <PatientList />
+          </Route>
+          <Route path="/editPatient/:patientId">
+            <PatientEdit />
+          </Route>
+          {/* <PrivateRoute path="/patientList">
             <PatientList />
           </PrivateRoute>
           <PrivateRoute path="/patientAdd">
             <PatientAdd />
-          </PrivateRoute>
+          </PrivateRoute> */}
           <Route path="*">
             <NotMatch />
           </Route>
         </Switch>
         <Footer />
-        <ParticlesBg
+        {/* <ParticlesBg
           type=
           // "color"
           // "ball"
@@ -74,7 +78,7 @@ function App() {
           // "fountain"
           // "random"
           // "custom"
-          bg={true} />
+          bg={true} /> */}
       </Router>
     </UserContext.Provider>
   );
