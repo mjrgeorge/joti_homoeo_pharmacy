@@ -23,7 +23,7 @@ const Dashboard = () => {
             .then(res => res.json())
             .then(result => {
                 if (result) {
-                    alert("Patient Data Successfully Deleted.")
+                    alert("Patient Information Successfully Deleted.")
                 }
             })
     };
@@ -68,10 +68,10 @@ const Dashboard = () => {
                                                         <td>${data.paidBill}</td>
                                                         <td>${data.totalBill - data.paidBill}</td>
                                                         <td role="button" className="d-flex justify-content-between align-items-center">
-                                                            <Link to ={`/editPatient/${data._id}`}>
+                                                            <Link to ={`/updatePatient/${data._id}`}>
                                                             <FontAwesomeIcon icon={faPen} />
                                                             </Link>
-                                                            <FontAwesomeIcon icon={faTrashAlt} onClick={() => handleDelete(`${data._id}`)} />
+                                                            <FontAwesomeIcon className="text-danger" icon={faTrashAlt} onClick={() => handleDelete(`${data._id}`)} />
                                                         </td>
                                                     </tr>)
                                             }

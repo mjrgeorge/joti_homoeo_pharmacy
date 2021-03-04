@@ -17,8 +17,8 @@ const PatientAddForm = () => {
             .then(res => res.json())
             .then(success => {
                 if (success) {
-                    alert('Patient Data Successfully Added');
-                    document.getElementById("myForm").reset();
+                    alert("Patient Information Successfully Added.");
+                    window.history.back();
                 }
             })
     };
