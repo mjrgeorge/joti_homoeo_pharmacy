@@ -3,9 +3,10 @@ import { UserContext } from '../../App';
 import SideBar from './SideBar';
 import loading from '../../images/loading.gif';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPen, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import { faPen, faPrint, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import Patient from './Patient';
 
 const Dashboard = () => {
     const [loggedInUser, setLoggedInUser, patientData, setPatientData] = useContext(UserContext);
@@ -14,19 +15,18 @@ const Dashboard = () => {
         fetch("https://safe-wildwood-28382.herokuapp.com/viewAllPatient")
             .then(res => res.json())
             .then(data => setPatientData(data))
-    }, [patientData]);
+    }, []);
 
-    const handleDelete = (id) => {
-        fetch(`https://safe-wildwood-28382.herokuapp.com/deletePatient/${id}`, {
-            method: 'DELETE'
-        })
-            .then(res => res.json())
-            .then(result => {
-                if (result) {
-                    alert("Patient Information Successfully Deleted.")
-                }
-            })
-    };
+    const allTotalPrice = patientData.map(data => data.totalBill);
+    const allTotalPaid = patientData.map(data => data.paidBill);
+
+    const totalPrice = allTotalPrice.reduce(
+        (previousScore, currentScore) => Number(previousScore) + Number(currentScore), 0);
+
+    const totalPaid = allTotalPaid.reduce(
+        (previousScore, currentScore) => Number(previousScore) + Number(currentScore), 0);
+
+    const totalDue = totalPrice - totalPaid;
 
     return (
         <>
@@ -48,38 +48,27 @@ const Dashboard = () => {
                                                 <th>Age</th>
                                                 <th>Disease</th>
                                                 <th>Treatment</th>
-                                                <th>Total Bill</th>
-                                                <th>Paid Bill</th>
-                                                <th>Due Bill</th>
+                                                <th className="text-info">Total Bill</th>
+                                                <th className="text-success">Paid Bill</th>
+                                                <th className="text-danger">Due Bill</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             {
-                                                patientData.map((data) =>
-                                                    <tr key={data._id}>
-                                                        <td>{data.serialNumber}</td>
-                                                        <td>{data.createdDate}</td>
-                                                        <td>{data.patientName}</td>
-                                                        <td>{data.age}</td>
-                                                        <td>{data.disease}</td>
-                                                        <td>{data.treatment}</td>
-                                                        <td>${data.totalBill}</td>
-                                                        <td>${data.paidBill}</td>
-                                                        <td>${data.totalBill - data.paidBill}</td>
-                                                        <td role="button" className="d-flex justify-content-between align-items-center">
-                                                            <Link to ={`/updatePatient/${data._id}`}>
-                                                            <FontAwesomeIcon icon={faPen} />
-                                                            </Link>
-                                                            <FontAwesomeIcon className="text-danger" icon={faTrashAlt} onClick={() => handleDelete(`${data._id}`)} />
-                                                        </td>
-                                                    </tr>)
+                                                patientData.map((data) => <Patient key={data._id} data={data}/>)
                                             }
+                                            <tr>
+                                                <td colSpan="6">Total</td>
+                                                <td className="h5 text-info">${totalPrice}</td>
+                                                <td className="h5 text-success">${totalPaid}</td>
+                                                <td className="h5 text-danger">${totalDue}</td>
+                                                <td>
+                                                    <Button variant="btn btn-outline-warning" onClick={() => window.print()}><FontAwesomeIcon icon={faPrint} /></Button>
+                                                </td>
+                                            </tr>
                                         </tbody>
                                     </table>
-                                    <div className="text-right">
-                                        <Button variant="btn btn-outline-danger" onClick={() => window.print()}>Print This Page</Button>
-                                    </div>
                                 </div>
                             </div>
                         </div>

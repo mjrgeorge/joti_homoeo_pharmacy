@@ -47,7 +47,7 @@ const PatientEdit = () => {
                                 <input name="serialNumber" ref={register} type="number" className="form-control mt-3" defaultValue={singlePatient.serialNumber} required />
                             </div>
                             <div className="col">
-                                <input name="phone" ref={register} type="number" className="form-control mt-3" defaultValue={singlePatient.phone} />
+                                <input name="phone" ref={register} type="text" className="form-control mt-3" defaultValue={singlePatient.phone} />
                             </div>
                             <div className="col">
                                 <input name="disease" ref={register} type="text" className="form-control mt-3" defaultValue={singlePatient.disease} required />

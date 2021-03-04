@@ -17,7 +17,7 @@ import PatientList from './components/dashboard/PatientList';
 import Login from './components/login/Login';
 import PrivateRoute from './components/login/PrivateRoute';
 import PatientAdd from './components/dashboard/PatientAdd';
-import PatientEdit from './components/dashboard/PatientEdit';
+import PatientEdit from './components/dashboard/PatientUpdate';
 
 export const UserContext = createContext();
 
@@ -44,7 +44,7 @@ function App() {
           <Route path="/contact">
             <Contact />
           </Route>
-          {/* <Route path="/patientList">
+          <Route path="/patientList">
             <PatientList />
           </Route>
           <Route path="/patientAdd">
@@ -52,8 +52,8 @@ function App() {
           </Route>
           <Route path="/updatePatient/:patientId">
             <PatientEdit />
-          </Route> */}
-          <PrivateRoute path="/patientList">
+          </Route>
+          {/* <PrivateRoute path="/patientList">
             <PatientList />
           </PrivateRoute>
           <PrivateRoute path="/patientAdd">
@@ -61,7 +61,7 @@ function App() {
           </PrivateRoute>
           <PrivateRoute path="/updatePatient/:patientId">
             <PatientEdit />
-          </PrivateRoute>
+          </PrivateRoute> */}
           <Route path="*">
             <NotMatch />
           </Route>
