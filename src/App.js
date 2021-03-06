@@ -45,7 +45,7 @@ function App() {
           <Route path="/contact">
             <Contact />
           </Route>
-          {/* <Route path="/patientList">
+          <Route path="/patientList">
             <PatientList />
           </Route>
           <Route path="/patientAdd">
@@ -56,8 +56,8 @@ function App() {
           </Route>
           <Route path="/patientListByDate">
             <Calender />
-          </Route> */}
-          <PrivateRoute path="/patientList">
+          </Route>
+          {/* <PrivateRoute path="/patientList">
             <PatientList />
           </PrivateRoute>
           <PrivateRoute path="/patientAdd">
@@ -68,7 +68,7 @@ function App() {
           </PrivateRoute>
           <PrivateRoute path="/patientListByDate">
             <Calender />
-          </PrivateRoute>
+          </PrivateRoute> */}
           <Route path="*">
             <NotMatch />
           </Route>

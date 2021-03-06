@@ -1,11 +1,9 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import { Button, Modal } from 'react-bootstrap';
 import { useForm } from "react-hook-form";
 import Calendar from 'react-calendar';
-import { UserContext } from '../../App';
 
 const PatientAddForm = () => {
-    const [loggedInUser, setLoggedInUser, patientData, setPatientData] = useContext(UserContext);
     const { register, handleSubmit } = useForm();
 
     const [show, setShow] = useState(false);
@@ -79,7 +77,7 @@ const PatientAddForm = () => {
                     <Button onClick={handleShow} variant="btn btn-outline-danger" className="form-control mt-3">Date</Button>
                     <Modal show={show} onHide={handleClose}>
                         <Modal.Header closeButton>
-                            <Modal.Title>Modal heading</Modal.Title>
+                            <Modal.Title>Select Your Date</Modal.Title>
                         </Modal.Header>
                         <Modal.Body className="d-flex justify-content-center">
                             <Calendar

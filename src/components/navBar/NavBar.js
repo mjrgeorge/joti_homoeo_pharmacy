@@ -6,7 +6,7 @@ import { faCode, faStethoscope } from '@fortawesome/free-solid-svg-icons';
 import { UserContext } from '../../App';
 
 const NavBar = () => {
-    const [loggedInUser, setLoggedInUser, patientData, setPatientData] = useContext(UserContext);
+    const [loggedInUser, , , ] = useContext(UserContext);
     return (
         <div className="container">
             <Navbar bg="transparent" expand="lg">
@@ -26,13 +26,13 @@ const NavBar = () => {
                         <Link className="h4 text-info font-weight-bold ml-4 text-decoration-none" to="/about">About</Link>
                         <Link className="h4 text-info font-weight-bold ml-4 text-decoration-none" to="/blogs">Blogs</Link>
                         <Link className="h4 text-info font-weight-bold ml-4 text-decoration-none" to="/contact">Contact</Link>
-                        <Link className="btn btn-outline-danger ml-4" to="/patientList"><big>Dashboard</big></Link>
+                        <Link className="btn btn-outline-info ml-4 mt-1" to="/patientList"><big>Dashboard</big></Link>
                         {
                             loggedInUser.email
                                 ?
-                                <a className="btn btn-danger ml-4" href="/"><big>Logout</big></a>
+                                <a className="btn btn-outline-danger ml-4 mt-1" href="/"><big>Logout</big></a>
                                 :
-                                <Link className="btn btn-outline-danger ml-4" to="/login"><big>Login</big></Link>
+                                <Link className="btn btn-outline-danger ml-4 mt-1" to="/login"><big>Login</big></Link>
                         }
                     </Nav>
                 </Navbar.Collapse>

@@ -3,14 +3,13 @@ import { UserContext } from '../../App';
 import SideBar from './SideBar';
 import loading from '../../images/loading.gif';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faPrint } from '@fortawesome/free-solid-svg-icons';
-import { Button } from 'react-bootstrap';
+import { faArrowCircleDown, faArrowCircleUp, faHome, faPrint } from '@fortawesome/free-solid-svg-icons';
 import Patient from './Patient';
 import 'react-calendar/dist/Calendar.css';
 import { Link } from 'react-router-dom';
 
 const Dashboard = () => {
-    const [loggedInUser, setLoggedInUser, patientData, setPatientData] = useContext(UserContext);
+    const [, , patientData, setPatientData] = useContext(UserContext);
     useEffect(() => {
         fetch("https://safe-wildwood-28382.herokuapp.com/viewAllPatient")
             .then(res => res.json())
@@ -33,11 +32,16 @@ const Dashboard = () => {
             {
                 patientData.length > 0 ?
                     <div style={{ minHeight: "70vh" }} className="container shadow-lg mb-4 p-5 text-capitalize">
+                        <div id="top" className="text-right">
+                            <a href="#down" className="text-warning">
+                                <FontAwesomeIcon className="h4" icon={faArrowCircleDown} />
+                            </a>
+                        </div>
                         <div className="row">
                             <div className="col-lg-2">
                                 <SideBar />
                             </div>
-                            <div className="col-lg-10 table-responsive">
+                            <div className="col-lg-10">
                                 <div className="table-responsive">
                                     <table className="table text-center">
                                         <thead>
@@ -64,16 +68,21 @@ const Dashboard = () => {
                                                 <td className="h5 text-success">${totalPaid}</td>
                                                 <td className="h5 text-danger">${totalDue}</td>
                                                 <td role="button" className="d-flex justify-content-between align-items-center">
-                                                <Link to={`/`}>
-                                                <FontAwesomeIcon className="text-dark" icon={faHome} />
-                                                </Link>
-                                                <FontAwesomeIcon className="text-danger" icon={faPrint} onClick={() => window.print()} />
-                                        </td>
+                                                    <Link to={`/`}>
+                                                        <FontAwesomeIcon className="text-dark" icon={faHome} />
+                                                    </Link>
+                                                    <FontAwesomeIcon className="text-danger" icon={faPrint} onClick={() => window.print()} />
+                                                </td>
                                             </tr>
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
+                        </div>
+                        <div id="down" className="text-right mt-3">
+                            <a href="#top" className="text-warning">
+                                <FontAwesomeIcon className="h4" icon={faArrowCircleUp} />
+                            </a>
                         </div>
                     </div>
                     :

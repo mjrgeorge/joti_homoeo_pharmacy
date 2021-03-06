@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { UserContext } from '../../App';
 
 const Patient = ({ data }) => {
-    const [loggedInUser, setLoggedInUser, patientData, setPatientData] = useContext(UserContext);
+    const [, , patientData, ] = useContext(UserContext);
     const handleDelete = (id) => {
         if (window.confirm("Are You Sure Delete This Patient")) {
             fetch(`https://safe-wildwood-28382.herokuapp.com/deletePatient/${id}`, {

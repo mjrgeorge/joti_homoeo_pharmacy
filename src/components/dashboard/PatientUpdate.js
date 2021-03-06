@@ -5,7 +5,7 @@ import { UserContext } from '../../App';
 import SideBar from './SideBar';
 
 const PatientEdit = () => {
-    const [loggedInUser, setLoggedInUser, patientData, setPatientData] = useContext(UserContext);
+    const [, , patientData, ] = useContext(UserContext);
     const { register, handleSubmit } = useForm();
 
     let { patientId } = useParams();

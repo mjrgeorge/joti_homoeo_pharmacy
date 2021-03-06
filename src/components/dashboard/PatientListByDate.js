@@ -1,4 +1,4 @@
-import { faHistory, faPen, faPrint, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import { faHistory, faPen, faPrint, faTrashAlt, faArrowCircleLeft } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
 import { Button, Modal } from 'react-bootstrap';
@@ -57,15 +57,15 @@ const Calender = () => {
             <div>
                 <div className="d-flex justify-content-center p-2">
                     {
-                        patientList.length?
-                        <Button variant="btn btn-outline-warning" onClick={handleShow}>Are You Search Another Date? Please Click Me.</Button>
-                        :
-                        <Button variant="btn btn-outline-danger" onClick={handleShow}>Please Click Here, And Select Your Expected Date From Calender.</Button>
+                        patientList.length ?
+                            <Button variant="btn btn-outline-warning" onClick={handleShow}>Are You Search Another Date? Please Click Me.</Button>
+                            :
+                            <Button variant="btn btn-outline-danger" onClick={handleShow}>Please Click Here, And Select Your Expected Date From Calender.</Button>
                     }
 
                     <Modal show={show} onHide={handleClose}>
                         <Modal.Header closeButton>
-                            <Modal.Title>Modal heading</Modal.Title>
+                            <Modal.Title>Select Your Expected Date</Modal.Title>
                         </Modal.Header>
                         <Modal.Body className="d-flex justify-content-center">
                             <Calendar
@@ -77,7 +77,7 @@ const Calender = () => {
                 </div>
                 {
                     patientList.length ?
-                        <div>
+                        <div className="table-responsive">
                             <table className="table text-center">
                                 <thead>
                                     <tr>
@@ -129,10 +129,21 @@ const Calender = () => {
                             </table>
                         </div>
                         :
-                        <p className="text-center text-warning p-5 m-5"> <span className="text-danger">Not Found!</span> <br></br> Please Carefully Select Your Expected Date.</p>
+                        <div>
+                            <p className="text-center text-warning p-4">
+                                <span className="text-danger">Not Found!</span>
+                                <br></br>
+                            Please Carefully Select Your Expected Date.
+                        </p>
+                            <div className="text-right">
+                                <Link to="/patientList" className="text-info">
+                                    <FontAwesomeIcon className="h4" icon={faArrowCircleLeft} />
+                                </Link>
+                            </div>
+                        </div>
                 }
             </div>
-        </div>
+        </div >
     );
 };
 
