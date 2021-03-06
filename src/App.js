@@ -18,7 +18,7 @@ import Login from './components/login/Login';
 import PrivateRoute from './components/login/PrivateRoute';
 import PatientAdd from './components/dashboard/PatientAdd';
 import PatientEdit from './components/dashboard/PatientUpdate';
-import Calender from './components/dashboard/Calender';
+import Calender from './components/dashboard/PatientListByDate';
 
 export const UserContext = createContext();
 

@@ -18,7 +18,7 @@ const Calender = () => {
         handleClose();
     }
     useEffect(() => {
-        fetch('http://localhost:30001/patientListByDate', {
+        fetch('https://safe-wildwood-28382.herokuapp.com/patientListByDate', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify({ date: selectedDate })
@@ -29,7 +29,7 @@ const Calender = () => {
 
     const handleDelete = (id) => {
         if (window.confirm("Are You Sure Delete This Patient")) {
-            fetch(`http://localhost:30001/deletePatient/${id}`, {
+            fetch(`https://safe-wildwood-28382.herokuapp.com/deletePatient/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
@@ -56,9 +56,12 @@ const Calender = () => {
         <div style={{ minHeight: "70vh" }} className="container shadow-lg mb-4 p-5 text-capitalize">
             <div>
                 <div className="d-flex justify-content-center p-2">
-                    <Button variant="btn btn-outline-danger" onClick={handleShow}>
-                        Please Click Here And Select Your Expected Date From Calender
-                </Button>
+                    {
+                        patientList.length?
+                        <Button variant="btn btn-outline-warning" onClick={handleShow}>Are You Search Another Date? Please Click Me.</Button>
+                        :
+                        <Button variant="btn btn-outline-danger" onClick={handleShow}>Please Click Here, And Select Your Expected Date From Calender.</Button>
+                    }
 
                     <Modal show={show} onHide={handleClose}>
                         <Modal.Header closeButton>
@@ -94,7 +97,7 @@ const Calender = () => {
                                     {
                                         patientList.map(patient => <tr key={patient._id}>
                                             <td>{patient.pageNumber}</td>
-                                            <td>{patient.date}</td>
+                                            <td>{patient.date.slice(0, 10)}</td>
                                             <td className="h6">{patient.patientName}</td>
                                             <td>{patient.age}</td>
                                             <td>{patient.disease}</td>
@@ -116,16 +119,17 @@ const Calender = () => {
                                         <td className="h5 text-success">${totalPaid}</td>
                                         <td className="h5 text-danger">${totalDue}</td>
                                         <td role="button" className="d-flex justify-content-between align-items-center">
-                                                <Link to={`/patientList`}>
+                                            <Link to={`/patientList`}>
                                                 <FontAwesomeIcon className="text-dark" icon={faHistory} />
-                                                </Link>
-                                                <FontAwesomeIcon className="text-danger" icon={faPrint} onClick={() => window.print()} />
+                                            </Link>
+                                            <FontAwesomeIcon className="text-danger" icon={faPrint} onClick={() => window.print()} />
                                         </td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
-                        : <div></div>
+                        :
+                        <p className="text-center text-warning p-5 m-5"> <span className="text-danger">Not Found!</span> <br></br> Please Carefully Select Your Expected Date.</p>
                 }
             </div>
         </div>

@@ -24,7 +24,7 @@ const PatientAddForm = () => {
             alert('Please Select Your Date');
         } else {
             data.date = entryDate;
-            fetch("http://localhost:30001/addPatient", {
+            fetch("https://safe-wildwood-28382.herokuapp.com/addPatient", {
                 method: "POST",
                 headers: { 'content-type': 'application/json' },
                 body: JSON.stringify(data)

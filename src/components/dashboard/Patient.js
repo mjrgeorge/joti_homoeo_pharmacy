@@ -8,7 +8,7 @@ const Patient = ({ data }) => {
     const [loggedInUser, setLoggedInUser, patientData, setPatientData] = useContext(UserContext);
     const handleDelete = (id) => {
         if (window.confirm("Are You Sure Delete This Patient")) {
-            fetch(`http://localhost:30001/deletePatient/${id}`, {
+            fetch(`https://safe-wildwood-28382.herokuapp.com/deletePatient/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
@@ -21,7 +21,6 @@ const Patient = ({ data }) => {
     };
     let date = data.date;
     date = date.slice(0, 10);
-
 
     return (
         <tr key={data._id}>

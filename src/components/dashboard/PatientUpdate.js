@@ -13,7 +13,7 @@ const PatientEdit = () => {
 
     const onSubmit = (data) => {
         data.date = new Date().toLocaleDateString();
-        fetch(`http://localhost:30001/updatePatient/${singlePatient._id}`, {
+        fetch(`https://safe-wildwood-28382.herokuapp.com/updatePatient/${singlePatient._id}`, {
             method: "PATCH",
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(data)

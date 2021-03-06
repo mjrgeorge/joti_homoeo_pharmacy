@@ -12,10 +12,10 @@ import { Link } from 'react-router-dom';
 const Dashboard = () => {
     const [loggedInUser, setLoggedInUser, patientData, setPatientData] = useContext(UserContext);
     useEffect(() => {
-        fetch("http://localhost:30001/viewAllPatient")
+        fetch("https://safe-wildwood-28382.herokuapp.com/viewAllPatient")
             .then(res => res.json())
             .then(data => setPatientData(data))
-    }, []);
+    }, [patientData]);
 
     const allTotalPrice = patientData.map(data => data.totalBill);
     const allTotalPaid = patientData.map(data => data.paidBill);
