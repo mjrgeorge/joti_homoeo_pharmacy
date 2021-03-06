@@ -1,13 +1,14 @@
 import { faPen, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { UserContext } from '../../App';
 
-const Patient = ({ data}) => {
-    console.log(data.length);
+const Patient = ({ data }) => {
+    const [loggedInUser, setLoggedInUser, patientData, setPatientData] = useContext(UserContext);
     const handleDelete = (id) => {
-        if(window.confirm("Are You Sure Delete This Patient")){
-            fetch(`https://safe-wildwood-28382.herokuapp.com/deletePatient/${id}`, {
+        if (window.confirm("Are You Sure Delete This Patient")) {
+            fetch(`http://localhost:30001/deletePatient/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
@@ -18,10 +19,14 @@ const Patient = ({ data}) => {
                 })
         }
     };
+    let date = data.date;
+    date = date.slice(0, 10);
+
+
     return (
         <tr key={data._id}>
-            <td>{data.serialNumber}</td>
-            <td>{data.createdDate}</td>
+            <td>{data.pageNumber}</td>
+            <td>{date}</td>
             <td className="h6">{data.patientName}</td>
             <td>{data.age}</td>
             <td>{data.disease}</td>
@@ -33,7 +38,12 @@ const Patient = ({ data}) => {
                 <Link to={`/updatePatient/${data._id}`}>
                     <FontAwesomeIcon className="text-dark" icon={faPen} />
                 </Link>
-                <FontAwesomeIcon className="text-danger" icon={faTrashAlt} onClick={() => handleDelete(`${data._id}`)} />
+                {
+                    patientData.length <= 1 ?
+                        <FontAwesomeIcon className="text-warning" icon={faTrashAlt} />
+                        :
+                        <FontAwesomeIcon className="text-danger" icon={faTrashAlt} onClick={() => handleDelete(`${data._id}`)} />
+                }
             </td>
         </tr>
     );

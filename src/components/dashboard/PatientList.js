@@ -1,18 +1,18 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { UserContext } from '../../App';
 import SideBar from './SideBar';
 import loading from '../../images/loading.gif';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPen, faPrint, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faPrint } from '@fortawesome/free-solid-svg-icons';
 import { Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
 import Patient from './Patient';
+import 'react-calendar/dist/Calendar.css';
+import { Link } from 'react-router-dom';
 
 const Dashboard = () => {
     const [loggedInUser, setLoggedInUser, patientData, setPatientData] = useContext(UserContext);
-
     useEffect(() => {
-        fetch("https://safe-wildwood-28382.herokuapp.com/viewAllPatient")
+        fetch("http://localhost:30001/viewAllPatient")
             .then(res => res.json())
             .then(data => setPatientData(data))
     }, []);
@@ -42,7 +42,7 @@ const Dashboard = () => {
                                     <table className="table text-center">
                                         <thead>
                                             <tr>
-                                                <th>S/R</th>
+                                                <th>Page</th>
                                                 <th>Date</th>
                                                 <th>Name</th>
                                                 <th>Age</th>
@@ -56,16 +56,19 @@ const Dashboard = () => {
                                         </thead>
                                         <tbody>
                                             {
-                                                patientData.map((data) => <Patient key={data._id} data={data}/>)
+                                                patientData.map((data) => <Patient key={data._id} data={data} />)
                                             }
                                             <tr>
-                                                <td colSpan="6">Total</td>
+                                                <td colSpan="6" className="h5">Total :</td>
                                                 <td className="h5 text-info">${totalPrice}</td>
                                                 <td className="h5 text-success">${totalPaid}</td>
                                                 <td className="h5 text-danger">${totalDue}</td>
-                                                <td>
-                                                    <Button variant="btn btn-outline-warning" onClick={() => window.print()}><FontAwesomeIcon icon={faPrint} /></Button>
-                                                </td>
+                                                <td role="button" className="d-flex justify-content-between align-items-center">
+                                                <Link to={`/`}>
+                                                <FontAwesomeIcon className="text-dark" icon={faHome} />
+                                                </Link>
+                                                <FontAwesomeIcon className="text-danger" icon={faPrint} onClick={() => window.print()} />
+                                        </td>
                                             </tr>
                                         </tbody>
                                     </table>

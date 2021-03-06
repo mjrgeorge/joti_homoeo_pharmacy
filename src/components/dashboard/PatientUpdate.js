@@ -12,8 +12,8 @@ const PatientEdit = () => {
     let singlePatient = patientData.find(patient => patient._id === patientId);
 
     const onSubmit = (data) => {
-        data.createdDate = new Date().toLocaleDateString();
-        fetch(`https://safe-wildwood-28382.herokuapp.com/updatePatient/${singlePatient._id}`, {
+        data.date = new Date().toLocaleDateString();
+        fetch(`http://localhost:30001/updatePatient/${singlePatient._id}`, {
             method: "PATCH",
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(data)
@@ -44,7 +44,7 @@ const PatientEdit = () => {
                         </div>
                         <div className="row">
                             <div className="col">
-                                <input name="serialNumber" ref={register} type="number" className="form-control mt-3" defaultValue={singlePatient.serialNumber} required />
+                                <input name="pageNumber" ref={register} type="number" className="form-control mt-3" defaultValue={singlePatient.pageNumber} required />
                             </div>
                             <div className="col">
                                 <input name="phone" ref={register} type="text" className="form-control mt-3" defaultValue={singlePatient.phone} />
