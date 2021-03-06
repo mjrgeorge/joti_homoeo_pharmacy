@@ -13,10 +13,10 @@ export default function Contact() {
             .then((result) => {
                 console.log(result.text);
                 alert('Message Successfully Send.');
+                e.target.reset();
             }, (error) => {
-                console.log(error.text);
+                alert(error.text);
             });
-        e.target.reset();
     };
 
     return (
