@@ -1,23 +1,29 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Redirect, Route } from 'react-router-dom';
-import { UserContext } from '../../App';
 
 const PrivateRoute = ({ children, ...rest }) => {
-    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+    let adminEmail;
+    const adminData = sessionStorage.getItem("admin");
+    const adminInfo = JSON.parse(adminData);
+    if (adminInfo) {
+        adminEmail = adminInfo.email;
+    } else {
+        adminEmail = false;
+    }
     return (
         <Route
             {...rest}
             render={({ location }) =>
-            loggedInUser.email==="jotihomoeo32@gmail.com"||loggedInUser.email==="mjrgeorge@gmail.com" ? (
+            adminEmail === "jotihomoeo32@gmail.com" || adminEmail === "mjrgeorge@gmail.com" ? (
                     children
                 ) : (
-                        <Redirect
-                            to={{
-                                pathname: "/login",
-                                state: { from: location }
-                            }}
-                        />
-                    )
+                    <Redirect
+                        to={{
+                            pathname: "/login",
+                            state: { from: location }
+                        }}
+                    />
+                )
             }
         />
     );

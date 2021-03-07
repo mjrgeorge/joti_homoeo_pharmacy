@@ -1,11 +1,12 @@
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
-import { useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import { UserContext } from '../../App';
 import SideBar from './SideBar';
 
 const PatientEdit = () => {
-    const [, , patientData, ] = useContext(UserContext);
+    const history = useHistory();
+    const [patientData, setPatientData] = useContext(UserContext);
     const { register, handleSubmit } = useForm();
 
     let { patientId } = useParams();
@@ -22,7 +23,8 @@ const PatientEdit = () => {
             .then(success => {
                 if (success) {
                     alert("Patient Information Successfully Updated.");
-                    window.history.back();
+                    history.push('/patientList');
+
                 }
             })
     };

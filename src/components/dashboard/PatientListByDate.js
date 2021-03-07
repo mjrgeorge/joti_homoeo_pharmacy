@@ -1,6 +1,6 @@
+import React, { useEffect, useState } from 'react';
 import { faHistory, faPen, faPrint, faTrashAlt, faArrowCircleLeft } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useEffect, useState } from 'react';
 import { Button, Modal } from 'react-bootstrap';
 import Calendar from 'react-calendar';
 import { Link } from 'react-router-dom';
@@ -135,8 +135,8 @@ const Calender = () => {
                                 <br></br>
                             Please Carefully Select Your Expected Date.
                         </p>
-                            <div className="text-right">
-                                <Link to="/patientList" className="text-info">
+                            <div className="text-center">
+                                <Link to="/patientList" className="text-danger">
                                     <FontAwesomeIcon className="h4" icon={faArrowCircleLeft} />
                                 </Link>
                             </div>

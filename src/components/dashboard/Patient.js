@@ -1,11 +1,12 @@
 import { faPen, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { UserContext } from '../../App';
 
 const Patient = ({ data }) => {
-    const [, , patientData, ] = useContext(UserContext);
+    const history = useHistory();
+    const [patientData, setPatientData] = useContext(UserContext);
     const handleDelete = (id) => {
         if (window.confirm("Are You Sure Delete This Patient")) {
             fetch(`https://safe-wildwood-28382.herokuapp.com/deletePatient/${id}`, {
@@ -14,7 +15,7 @@ const Patient = ({ data }) => {
                 .then(res => res.json())
                 .then(result => {
                     if (result) {
-                        alert("Patient Information Successfully Deleted.")
+                        history.push('/patientAdd');
                     }
                 })
         }

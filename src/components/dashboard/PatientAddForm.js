@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import { Button, Modal } from 'react-bootstrap';
 import { useForm } from "react-hook-form";
 import Calendar from 'react-calendar';
+import { useHistory } from 'react-router';
 
 const PatientAddForm = () => {
+    const history = useHistory();
     const { register, handleSubmit } = useForm();
 
     const [show, setShow] = useState(false);
@@ -31,7 +33,7 @@ const PatientAddForm = () => {
                 .then(success => {
                     if (success) {
                         alert("Patient Information Successfully Added.");
-                        window.history.back();
+                        history.push('/patientList');
                     }
                 })
         }

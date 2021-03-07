@@ -18,15 +18,14 @@ import Login from './components/login/Login';
 import PrivateRoute from './components/login/PrivateRoute';
 import PatientAdd from './components/dashboard/PatientAdd';
 import PatientEdit from './components/dashboard/PatientUpdate';
-import Calender from './components/dashboard/PatientListByDate';
+import PatientListByDate from './components/dashboard/PatientListByDate';
 
 export const UserContext = createContext();
 
 function App() {
-  const [loggedInUser, setLoggedInUser] = useState([]);
   const [patientData, setPatientData] = useState([]);
   return (
-    <UserContext.Provider value={[loggedInUser, setLoggedInUser, patientData, setPatientData]}>
+    <UserContext.Provider value={[patientData, setPatientData]}>
       <Router>
         <NavBar />
         <Switch>
@@ -45,19 +44,7 @@ function App() {
           <Route path="/contact">
             <Contact />
           </Route>
-          <Route path="/patientList">
-            <PatientList />
-          </Route>
-          <Route path="/patientAdd">
-            <PatientAdd />
-          </Route>
-          <Route path="/updatePatient/:patientId">
-            <PatientEdit />
-          </Route>
-          <Route path="/patientListByDate">
-            <Calender />
-          </Route>
-          {/* <PrivateRoute path="/patientList">
+          <PrivateRoute path="/patientList">
             <PatientList />
           </PrivateRoute>
           <PrivateRoute path="/patientAdd">
@@ -67,8 +54,8 @@ function App() {
             <PatientEdit />
           </PrivateRoute>
           <PrivateRoute path="/patientListByDate">
-            <Calender />
-          </PrivateRoute> */}
+            <PatientListByDate />
+          </PrivateRoute>
           <Route path="*">
             <NotMatch />
           </Route>
