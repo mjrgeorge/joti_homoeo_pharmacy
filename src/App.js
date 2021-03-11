@@ -82,3 +82,56 @@ function App() {
 }
 
 export default App;
+
+// import React, { useState } from 'react';
+
+// const Input = () => {
+//     const exampleList = [
+//         {
+//             name: 'Joe Smith',
+//             email: 'joesmith@gmail.com',
+//         },
+//         {
+//             name: 'Alan Donald',
+//             email: 'alan@gmail.com',
+//         },
+//         {
+//             name: 'Joef Smith',
+//             email: 'joesmith@gmail.com',
+//         },
+//         {
+//             name: 'Alagn Donald',
+//             email: 'alan@gmail.com',
+//         },
+//         {
+//             name: 'Jose Smith',
+//             email: 'joesmith@gmail.com',
+//         },
+//         {
+//             name: 'Alaen Donald',
+//             email: 'alan@gmail.com',
+//         },
+//     ];
+//     const [userName, setUserName] = useState("");
+
+//     return (
+//         <div>
+//             <input type="text" placeholder="search..." onChange={(e) => setUserName(e.target.value)} />
+//             {
+//                 exampleList.filter((val) => {
+//                     if (userName === "") {
+//                         return val
+//                     } else if (val.name.toLowerCase().includes(userName.toLowerCase())) {
+//                         return val
+//                     }
+//                 })
+//                     .map(data => <div>
+//                         <p>{data.name}</p>
+//                     </div>)
+//             }
+//         </div>
+//     );
+// };
+
+// export default Input;
+

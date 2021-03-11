@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { UserContext } from '../../App';
 import SideBar from './SideBar';
 import loading from '../../images/loading.gif';
@@ -10,6 +10,8 @@ import { Link } from 'react-router-dom';
 
 const Dashboard = () => {
     const [patientData, setPatientData] = useContext(UserContext);
+    const [searchText, setSearchText] = useState("");
+
     useEffect(() => {
         fetch("https://safe-wildwood-28382.herokuapp.com/viewAllPatient")
             .then(res => res.json())
@@ -40,6 +42,9 @@ const Dashboard = () => {
                         <div className="row">
                             <div className="col-lg-2">
                                 <SideBar />
+                                <div className="input-group mb-3">
+                                    <input type="text" className="list-group-item list-group-item-action list-group-item-danger" placeholder="Search..." onChange={(e) => setSearchText(e.target.value)} />
+                                </div>
                             </div>
                             <div className="col-lg-10">
                                 <div className="table-responsive">
@@ -60,7 +65,14 @@ const Dashboard = () => {
                                         </thead>
                                         <tbody>
                                             {
-                                                patientData.map((data) => <Patient key={data._id} data={data} />)
+                                                patientData.filter((val) => {
+                                                    if (searchText === "") {
+                                                        return val
+                                                    } else if (val.patientName.toLowerCase().includes(searchText.toLowerCase())) {
+                                                        return val
+                                                    }
+                                                })
+                                                    .map((data) => <Patient key={data._id} data={data} />)
                                             }
                                             <tr>
                                                 <td colSpan="6" className="h5">Total :</td>
